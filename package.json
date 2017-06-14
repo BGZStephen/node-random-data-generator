@@ -1,0 +1,16 @@
+{
+  "name": "node-random-data-generator",
+  "version": "1.0.0",
+  "description": "A random data generator built with Node.js + Angular",
+  "main": "app.js",
+  "repository": "https://github.com/BGZStephen/node-random-data-generator",
+  "author": "Stephen Wright <sjw948@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cors": "^2.8.3",
+    "express": "^4.15.3",
+    "mongoose": "^4.10.6",
+    "path": "^0.12.7"
+  }
+}
