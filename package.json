@@ -7,9 +7,13 @@
   "author": "Stephen Wright <sjw948@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "async": "^2.4.1",
+    "asyncawait": "^1.0.6",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.17.2",
     "cors": "^2.8.3",
     "express": "^4.15.3",
+    "jsonwebtoken": "^7.4.1",
     "mongoose": "^4.10.6",
     "path": "^0.12.7"
   }

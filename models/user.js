@@ -19,13 +19,12 @@ const UserSchema = mongoose.Schema({
 const User = module.exports = mongoose.model('User', UserSchema)
 
 module.exports.create = function(userObject) {
-  return new Promise((resolve, reject), => {
+  let hashedPassword = bcrypt.hashSync(userObject.password, 10);
+  userObject.password = hashedPassword;
 
-    let hashedPassword = bcrypt.hashSync(userObject.password, 10);
-    userObject.password = hashedPassword
-
-    userObject.save().then(res => {
-      if(res == null) {
+  return new Promise((resolve, reject) => {
+    userObject.save().then(result => {
+      if(result == null) {
         reject({success: false, message: "Failed to save User", data: res})
       } else {
         resolve({success: true, message: "User created successfully", data: res})
@@ -35,9 +34,9 @@ module.exports.create = function(userObject) {
 }
 
 module.exports.comparePassword = function(userObject) {
-  return new Promise((resolve, reject), => {
-    bcrypt.compareSync(userObject.password, userObject.hash).then(res => {
-      if(res) {
+  return new Promise((resolve, reject) => {
+    bcrypt.compareSync(userObject.password, userObject.hash).then(result => {
+      if(result) {
         resolve({success: true, message: "Passwords match"})
       } else {
         reject({success: false, message: "Passwords do not match"})
@@ -48,7 +47,7 @@ module.exports.comparePassword = function(userObject) {
 
 module.exports.deleteOne = function(userObject) {
   return new Promise((resolve, reject) => {
-    User.findOne(userObject).remove().then(res => {
+    User.findOne(userObject).remove().then(result => {
       if(JSON.parse(result).n != 1) {
         reject({success: false, message: "Failed to delete user", data: result})
       } else {
@@ -58,10 +57,22 @@ module.exports.deleteOne = function(userObject) {
   })
 }
 
-module.exports.get = function(userObject) {
-  return new Promise((resolve, reject), => {
-    User.find(userObject).then(res => {
-      if(res.length == 0} {
+module.exports.exists = function(userObject) {
+  return new Promise((resolve, reject) => {
+    User.findOne(userObject).then(result => {
+      if(result == null) {
+        resolve({success: true, message: "User does not exist", data: result})
+      } else {
+        reject({success: false, message: "User already exists", data: result})
+      }
+    })
+  })
+}
+
+module.exports.getOne = function(userObject) {
+  return new Promise((resolve, reject) => {
+    User.find(userObject).then(result => {
+      if(result.length == 0) {
         reject({success: false, message: "User(s) not found", data: res})
       } else {
         resolve({success: true, message: "User(s) found", data: res})
@@ -71,9 +82,9 @@ module.exports.get = function(userObject) {
 }
 
 module.exports.update = function(userObject) {
-  return new Promise((resolve, reject), => {
-    User.update({"_id": userObject._id}, userObject).then(res => {
-      if(res.nModified == 0) {
+  return new Promise((resolve, reject) => {
+    User.update({"_id": userObject._id}, userObject).then(result => {
+      if(result.nModified == 0) {
         resolve({success: true, message: "Nothing to update"})
       } else if (res.nModified >= 1) {
         resolve({success: true, message: "User updated", data: result})
@@ -85,11 +96,11 @@ module.exports.update = function(userObject) {
 }
 
 module.exports.updatePassword = function(userObject) {
-  return new Promise((resolve, reject), => {
+  return new Promise((resolve, reject) => {
     let hashedPassword = bcrypt.hashSync(userObject.newPassword, 10);
     userObject.password = hashedPassword
-    User.update({"_id": userObject._id}, {password: userObject.password}).then(res =>{
-      if(res.nModified >= 1) {
+    User.update({"_id": userObject._id}, {password: userObject.password}).then(result =>{
+      if(result.nModified >= 1) {
         resolve({success: true, message: "Password updated", data: result})
       } else {
         reject({success: false, message: "Password update failed", data: result})

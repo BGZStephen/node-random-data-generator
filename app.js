@@ -29,6 +29,11 @@ app.use(bodyParser.json())
 // static folder for public views
 app.use(express.static(path.join(__dirname, 'public')))
 
+// routing
+const users = require("./routes/users")
+
+app.use('/users', users)
+
 // default route
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/index.html'))
