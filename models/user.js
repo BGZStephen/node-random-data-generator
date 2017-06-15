@@ -35,13 +35,13 @@ module.exports.create = function(userObject) {
 
 module.exports.comparePassword = function(userObject) {
   return new Promise((resolve, reject) => {
-    bcrypt.compareSync(userObject.password, userObject.hash).then(result => {
+    bcrypt.compare(userObject.password, userObject.hash).then((result) => {
       if(result) {
         resolve({success: true, message: "Passwords match"})
       } else {
         reject({success: false, message: "Passwords do not match"})
       }
-    })
+    });
   })
 }
 
@@ -69,13 +69,13 @@ module.exports.exists = function(userObject) {
   })
 }
 
-module.exports.getOne = function(userObject) {
+module.exports.getUser = function(userObject) {
   return new Promise((resolve, reject) => {
-    User.find(userObject).then(result => {
-      if(result.length == 0) {
-        reject({success: false, message: "User(s) not found", data: res})
+    User.findOne({email: userObject.email}).then(result => {
+      if(result == null) {
+        reject({success: false, message: "User does not exist", data: result})
       } else {
-        resolve({success: true, message: "User(s) found", data: res})
+        resolve({success: true, message: "User found", data: result})
       }
     })
   })

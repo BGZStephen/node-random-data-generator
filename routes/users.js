@@ -13,15 +13,19 @@ router.post("/authenticate", (req, res, next) => {
     password: req.body.password
   }
 
-  User.getOne({email: userObject.email})
-  .then(result => {
-    userObject.hash = result.password
+  let authenticateUser = async (function (userObject) {
+    let user = await(User.getUser({email: userObject.email}))
+    userObject.hash = user.data.password
     return User.comparePassword(userObject)
-  }).then(result => {
+  })
+
+  authenticateUser(userObject)
+  .then(result => {
     res.json(result)
-  }).catch(err => {
-    console.log(err)
-    res.json({success: err.success, message: err.message})
+  })
+  .catch(error => {
+    console.log(error)
+    res.json({success: error.success, message: error.message})
   })
 })
 
@@ -36,7 +40,7 @@ router.post("/create", (req, res, next) => {
   })
 
   let createUser = async (function (userObject) {
-    let exists = await(User.exists({email: userObject.email}));
+    await(User.exists({email: userObject.email}));
     return User.create(userObject);
   })
 
@@ -44,9 +48,9 @@ router.post("/create", (req, res, next) => {
   .then(result => {
     res.json(result)
   })
-  .catch(err => {
-    console.log(err)
-    res.json({success: err.success, message: err.message})
+  .catch(error => {
+    console.log(error)
+    res.json({success: error.success, message: error.message})
   })
 })
 
