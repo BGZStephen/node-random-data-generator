@@ -19,15 +19,16 @@ const UserSchema = mongoose.Schema({
 const User = module.exports = mongoose.model('User', UserSchema)
 
 module.exports.create = function(userObject) {
-  let hashedPassword = bcrypt.hashSync(userObject.password, 10);
-  userObject.password = hashedPassword;
+  // encrypt password
+  userObject.password = bcrypt.hashSync(userObject.password, 10)
 
+  //save user
   return new Promise((resolve, reject) => {
     userObject.save().then(result => {
       if(result == null) {
-        reject({success: false, message: "Failed to save User", data: res})
+        reject({success: false, message: "User creation failed", data: result})
       } else {
-        resolve({success: true, message: "User created successfully", data: res})
+        resolve({success: true, message: "User created successfully", data: result})
       }
     })
   })
@@ -71,7 +72,7 @@ module.exports.exists = function(userObject) {
 
 module.exports.getUser = function(userObject) {
   return new Promise((resolve, reject) => {
-    User.findOne({email: userObject.email}).then(result => {
+    User.findOne(userObject).then(result => {
       if(result == null) {
         reject({success: false, message: "User does not exist", data: result})
       } else {
@@ -81,7 +82,7 @@ module.exports.getUser = function(userObject) {
   })
 }
 
-module.exports.update = function(userObject) {
+module.exports.updateUser = function(userObject) {
   return new Promise((resolve, reject) => {
     User.update({"_id": userObject._id}, userObject).then(result => {
       if(result.nModified == 0) {
