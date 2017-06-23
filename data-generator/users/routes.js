@@ -1,11 +1,10 @@
 const async = require('asyncawait/async');
 const await = require('asyncawait/await');
-const config = require('../config/database');
+const config = require('../../config');
 const express = require('express')
-const jwt = require('jsonwebtoken')
-const mongoose = require('mongoose');
 const router = express.Router()
-const User = require("../models/user")
+const jwt = require('jsonwebtoken')
+const User = require("./model")
 
 router.post("/authenticate", (req, res, next) => {
   let userObject = {

@@ -1,10 +1,8 @@
 const async = require('asyncawait/async');
 const await = require('asyncawait/await');
-const config = require('../config/database');
 const express = require('express')
-const mongoose = require('mongoose');
 const router = express.Router()
-const CarManufacturer = require("../models/car-manufacturer")
+const CarManufacturer = require("./model")
 
 router.post("/create", (req, res, next) => {
   let carManufacturerObject = new CarManufacturer({

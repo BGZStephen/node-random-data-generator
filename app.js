@@ -30,7 +30,7 @@ app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, 'public')))
 
 // routing
-const users = require("./routes/users")
+const users = require("./data-generator/users/routes")
 
 app.use('/users', users)
 
