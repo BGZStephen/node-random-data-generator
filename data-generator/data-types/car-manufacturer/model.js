@@ -1,7 +1,8 @@
 const mongoose = require('mongoose')
-const bcrypt = require('bcryptjs')
+mongoose.Promise = require('bluebird')
+const Promise = require('bluebird')
 
-const CarManufacturer = mongoose.Schema({
+const CarManufacturerSchema = mongoose.Schema({
   createdOn: Date,
   name: String
 })

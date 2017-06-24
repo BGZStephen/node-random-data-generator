@@ -3,7 +3,9 @@ const cors = require('cors')
 const path = require('path')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
+mongoose.Promise = require('bluebird')
 const config = require('./config')
+const CSV = require('./data-generator/data-parsers/csv')
 
 // mongoose db connection
 mongoose.connect(config.database)
@@ -39,7 +41,7 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/index.html'))
 })
 
-const port = 3005;
+const port = 3000;
 
 app.listen(port, () => {
   console.log(`Server started on port ${port}`)
