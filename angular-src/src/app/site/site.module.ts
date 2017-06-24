@@ -5,9 +5,11 @@ import { HttpModule } from '@angular/http';
 import { router } from "../app.routes"
 import { SiteViewComponent } from './components/site-view/site-view.component';
 import { SiteHomeComponent } from './components/site-home/site-home.component';
+import { SiteRegisterComponent } from './components/site-register/site-register.component';
+import { SiteLoginComponent } from './components/site-login/site-login.component';
 
 @NgModule({
-  declarations: [SiteViewComponent, SiteHomeComponent],
+  declarations: [SiteViewComponent, SiteHomeComponent, SiteRegisterComponent, SiteLoginComponent],
   exports: [
     SiteViewComponent,
     SiteHomeComponent

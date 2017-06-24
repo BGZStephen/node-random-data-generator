@@ -1,16 +1,20 @@
 import { Routes, RouterModule } from "@angular/router"
 
 // site specific
-import { SiteViewComponent, SiteHomeComponent} from "./site/components/site-components-barrel"
+import { SiteViewComponent, SiteHomeComponent, SiteRegisterComponent, SiteLoginComponent} from "./site/components/site-components-barrel"
 
 // dashboard specific
-import { DashboardViewComponent } from "./dashboard/components/dashboard-components-barrel"
+import { DashboardViewComponent, DashboardHomeComponent } from "./dashboard/components/dashboard-components-barrel"
 
 const APP_ROUTES: Routes = [
   {path: "", component: SiteViewComponent, children: [
-    {path: "", component: SiteHomeComponent, outlet: "siteOutlet"}
+    {path: "", component: SiteHomeComponent, outlet: "siteOutlet"},
+    {path: "login", component: SiteLoginComponent, outlet: "siteOutlet"},
+    {path: "register", component: SiteRegisterComponent, outlet: "siteOutlet"},
   ]},
-  {path: "dashboard", component: DashboardViewComponent}
+  {path: "dashboard", component: DashboardViewComponent, children: [
+    {path: "", component: DashboardHomeComponent, outlet: "dashboardOutlet"},
+  ]}
 ]
 
 export const router = RouterModule.forRoot(APP_ROUTES)
