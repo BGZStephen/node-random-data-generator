@@ -10,16 +10,15 @@
   margin-top: 30px;
 }
 
-.left-bracer {
-  position: relative;
+.left-bracer,
+.right-bracer {
+  margin: 7px 0;
 }
 
 .object-key-row {
   align-items: center;
   display: flex;
-  margin: 5px 0;
-  position: relative;
-  left: 25px;
+  margin: 3px 0 3px 25px;
 }
 
 .object-seperator {

@@ -36,7 +36,9 @@ export class DashboardNavbarComponent implements OnInit {
         carets[i].classList.remove("fa-caret-right-transform")
       }
     }
-    carets[index].classList.toggle("fa-caret-right-transform")
+    if(carets[index]) {
+      carets[index].classList.toggle("fa-caret-right-transform")
+    }
     if(index == this.activeSubMenu) {
       this.activeSubMenu = -1
     } else {
@@ -51,6 +53,10 @@ export class DashboardNavbarComponent implements OnInit {
     } else {
       return {"height": "0px"}
     }
+  }
+
+  clearComponent(component) {
+    this.router.navigate(['/dashboard', {outlets: {'dashboardOutlet': ['home']}}]);
   }
 
   setComponent(component) {
