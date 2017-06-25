@@ -16,13 +16,13 @@
 .left-container {
   width: 100%;
   @media(min-width: 768px) {
-    width: 280px;
+    width: 260px;
   }
 }
 
 .right-container {
   widtH: 100%;
   @media(min-width: 768px) {
-    width: calc(100% - 280px);
+    width: calc(100% - 260px);
   }
 }
