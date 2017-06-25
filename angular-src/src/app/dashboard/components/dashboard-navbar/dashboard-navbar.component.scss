@@ -1,0 +1,125 @@
+@import '../../sass/_variables.scss';
+
+.main-container {
+  width: 100%;
+}
+
+.navbar-container {
+  width: 100%;
+}
+
+.navbar-header-container {
+  align-items: center;
+  border-bottom: 1px solid darken($primary-black, 5%);
+  display: flex;
+  flex-wrap: wrap;
+  height: 50px;
+  justify-content: center;
+  width: 100%;
+}
+
+.navbar-header {
+  color: #ccc;
+  font-weight: 500;
+  font-size: 1em;
+  font-style: italic;
+  letter-spacing: 0.1em;
+  text-align: center;
+}
+
+.top-level-navbar {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.top-level-item {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.top-level-content {
+  align-items: center;
+  border-bottom: 1px solid darken($primary-black, 5%);
+  border-top: 1px solid lighten($primary-black, 5%);
+  display: flex;
+  flex-wrap: wrap;
+  height: 45px;
+  padding-left: 20px;
+  position: relative;
+  width: 100%;
+}
+
+.top-level-content:hover {
+  background: $primary-yellow;
+}
+
+.fa-user,
+.content-description,
+.top-level-content,
+.fa-caret-down {
+  transition: all 0.3s ease;
+}
+
+.top-level-content:hover .fa-user,
+.top-level-content:hover .content-description,
+.top-level-content:hover .fa-caret-down {
+  color: black;
+}
+
+.fa-user {
+  color: #ddd;
+  margin-right: 15px;
+  width: 15px;
+}
+
+.content-description {
+  color: #ddd;
+  font-size: 1.1em;
+}
+
+.fa-caret-down {
+  color: #ddd;
+  position: absolute;
+  right: 20px;
+}
+
+.second-level-navbar {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-height: 0;
+  overflow: hidden;
+}
+
+.second-level-item {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.second-level-content {
+  align-items: center;
+  border-bottom: 1px solid darken($primary-black, 5%);
+  border-top: 1px solid lighten($primary-black, 5%);
+  display: flex;
+  flex-wrap: wrap;
+  height: 45px;
+  padding-left: 20px;
+  position: relative;
+  width: 100%;
+}
+
+.second-level-content:hover {
+  background: $primary-yellow;
+}
+
+.second-level-content:hover .fa,
+.second-level-content:hover .content-description {
+  color: black;
+}
+
+.fa-cog {
+  color: white;
+  margin-right: 15px;
+  width: 15px;
+}
