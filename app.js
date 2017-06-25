@@ -33,8 +33,10 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 // routing
 const users = require("./data-generator/users/routes")
+const dataGenerators = require("./data-generator/routes")
 
 app.use('/users', users)
+app.use('/data-generators', dataGenerators)
 
 // default route
 app.get('*', (req, res) => {

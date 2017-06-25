@@ -57,6 +57,18 @@ module.exports.get = function(carManufacturerObject) {
   })
 }
 
+module.exports.getAll = function(carManufacturerObject) {
+  return new Promise((resolve, reject) => {
+    CarManufacturer.find({}).then(result => {
+      if(result == null) {
+        reject({success: false, message: "Car manufacturers not found", data: result})
+      } else {
+        resolve({success: true, message: "Car manufacturers found", data: result})
+      }
+    })
+  })
+}
+
 module.exports.updateCarManufacturer = function(carManufacturerObject) {
   return new Promise((resolve, reject) => {
     CarManufacturer.update({"_id": carManufacturerObject._id}, carManufacturerObject).then(result => {
