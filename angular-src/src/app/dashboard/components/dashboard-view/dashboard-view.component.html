@@ -1,4 +1,11 @@
-<p>
-  dashboard-view works!
-</p>
-<router-outlet name="dashboardOutlet"></router-outlet>
+<div class="main-container">
+  <div class="notification-bar-container">
+    <app-dashboard-notification-bar></app-dashboard-notification-bar>
+  </div>
+  <div class="left-container">
+    <app-dashboard-navbar></app-dashboard-navbar>
+  </div>
+  <div class="right-container">
+    <router-outlet name="dashboardOutlet"></router-outlet>
+  </div>
+</div>

@@ -10,9 +10,11 @@ import { DashboardApiService } from "./dashboard-api.service"
 // components
 import { DashboardViewComponent } from './components/dashboard-view/dashboard-view.component';
 import { DashboardHomeComponent } from './components/dashboard-home/dashboard-home.component';
+import { DashboardNotificationBarComponent } from './components/dashboard-notification-bar/dashboard-notification-bar.component';
+import { DashboardNavbarComponent } from './components/dashboard-navbar/dashboard-navbar.component';
 
 @NgModule({
-  declarations: [DashboardViewComponent, DashboardHomeComponent],
+  declarations: [DashboardViewComponent, DashboardHomeComponent, DashboardNotificationBarComponent, DashboardNavbarComponent],
   imports: [
     BrowserModule,
     FormsModule,

@@ -1,0 +1,28 @@
+@import '../../sass/_variables.scss' ;
+
+.main-container {
+  background: $primary-black;
+  align-content: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.notification-bar-container {
+  width: 100%;
+}
+
+.left-container {
+  width: 100%;
+  @media(min-width: 768px) {
+    width: 280px;
+  }
+}
+
+.right-container {
+  widtH: 100%;
+  @media(min-width: 768px) {
+    width: calc(100% - 280px);
+  }
+}
