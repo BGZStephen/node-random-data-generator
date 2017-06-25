@@ -16,13 +16,31 @@ export class DashboardNavbarComponent implements OnInit {
 
   }
 
-  navbarStyle() {
+  activeSubMenu: number = -1
 
+  navbarStyle() {
     let minHeight = (document.getElementsByClassName("top-level-navbar")[0].children.length * 45) + 50
     if(navbarVisible) {
-      return {"max-height": "100vh", "min-height": `${minHeight}px`}
+      return {"left": "0"}
     } else {
-      return {"max-height": "0px", "min-height": "0px"}
+      return {"left": "-100vw"}
+    }
+  }
+
+  setActiveSubMenu(index) {
+    if(index == this.activeSubMenu) {
+      this.activeSubMenu = -1
+    } else {
+      this.activeSubMenu = index
+    }
+  }
+
+  subMenuStyle(index) {
+    let minHeight = (document.getElementsByClassName("second-level-navbar")[index].children.length * 45)
+    if(index == this.activeSubMenu) {
+      return {"height": `${minHeight}px`}
+    } else {
+      return {"height": "0px"}
     }
   }
 

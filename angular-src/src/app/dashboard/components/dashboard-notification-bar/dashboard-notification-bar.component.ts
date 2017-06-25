@@ -18,6 +18,12 @@ export class DashboardNotificationBarComponent implements OnInit {
     console.log(navbarVisible)
   }
 
+  setNavbarResize() {
+    if(screen.width >= 768) {
+      navbarVisible = true;
+    }
+  }
+
 }
 
 export let navbarVisible : boolean = true;
