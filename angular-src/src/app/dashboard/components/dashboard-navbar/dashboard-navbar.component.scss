@@ -71,13 +71,13 @@
 .fa-user,
 .content-description,
 .top-level-content,
-.fa-caret-down {
+.fa-caret-right {
   transition: all 0.3s ease;
 }
 
 .top-level-content:hover .fa-user,
 .top-level-content:hover .content-description,
-.top-level-content:hover .fa-caret-down {
+.top-level-content:hover .fa-caret-right {
   color: black;
 }
 
@@ -92,10 +92,14 @@
   font-size: 1.1em;
 }
 
-.fa-caret-down {
+.fa-caret-right {
   color: #ddd;
   position: absolute;
   right: 20px;
+}
+
+.fa-caret-right-transform {
+  transform: rotate(90deg);
 }
 
 .second-level-navbar {

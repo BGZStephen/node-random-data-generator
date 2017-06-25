@@ -28,6 +28,13 @@ export class DashboardNavbarComponent implements OnInit {
   }
 
   setActiveSubMenu(index) {
+    let carets = document.getElementsByClassName("fa-caret-right")
+    for(let i = 0; i < carets.length; i++) {
+      if(i != index) {
+        carets[i].classList.remove("fa-caret-right-transform")
+      }
+    }
+    carets[index].classList.toggle("fa-caret-right-transform")
     if(index == this.activeSubMenu) {
       this.activeSubMenu = -1
     } else {
