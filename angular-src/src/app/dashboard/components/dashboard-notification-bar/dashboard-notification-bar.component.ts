@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard-notification-bar',
@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardNotificationBarComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
+  toggleNavbarVisible() {
+    navbarVisible = !navbarVisible
+    console.log(navbarVisible)
+  }
+
 }
+
+export let navbarVisible : boolean = true;
