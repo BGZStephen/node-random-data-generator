@@ -3,3 +3,39 @@
   min-height: calc(100vh - 50px);
   padding: 10px;
 }
+
+.object-builder-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+.left-bracer {
+  position: relative;
+}
+
+.object-key-row {
+  align-items: center;
+  display: flex;
+  margin: 5px 0;
+  position: relative;
+  left: 25px;
+}
+
+.object-seperator {
+  margin: 0 10px;
+}
+
+.object-key,
+.object-value {
+  padding: 5px;
+}
+
+.object-value,
+.object-key,
+.left-bracer,
+.right-bracer,
+.object-seperator {
+  font-size: 1.4em;
+  font-weight: 700;
+}
