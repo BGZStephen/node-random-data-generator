@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DashboardNotificationBarComponent } from "../dashboard-notification-bar/dashboard-notification-bar.component"
 import { navbarVisible } from "../dashboard-notification-bar/dashboard-notification-bar.component"
+import { Router } from "@angular/router"
 
 @Component({
   selector: 'app-dashboard-navbar',
@@ -10,6 +11,7 @@ import { navbarVisible } from "../dashboard-notification-bar/dashboard-notificat
 export class DashboardNavbarComponent implements OnInit {
 
   constructor(
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -49,6 +51,10 @@ export class DashboardNavbarComponent implements OnInit {
     } else {
       return {"height": "0px"}
     }
+  }
+
+  setComponent(component) {
+    this.router.navigate(['/dashboard/data-generators', {outlets: {'dashboardOutlet': [component]}}]);
   }
 
 }

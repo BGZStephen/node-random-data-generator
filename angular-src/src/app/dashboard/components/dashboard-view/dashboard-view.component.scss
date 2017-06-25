@@ -21,8 +21,10 @@
 }
 
 .right-container {
-  widtH: 100%;
+  background: white;
+  width: 100%;
   @media(min-width: 768px) {
     width: calc(100% - 260px);
+    min-height: calc(100vh - 50px);
   }
 }

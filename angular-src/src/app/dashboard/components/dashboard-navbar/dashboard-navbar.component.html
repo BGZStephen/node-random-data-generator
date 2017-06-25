@@ -6,34 +6,17 @@
     <ul class="top-level-navbar">
       <li class="top-level-item">
         <div class="top-level-content" (click)="setActiveSubMenu(0)">
-          <i class="fa fa-user"></i><p class="content-description">test</p><i class="fa fa-caret-right"></i>
+          <i class="fa fa-cogs"></i><p class="content-description">generators</p><i class="fa fa-caret-right"></i>
         </div>
         <ul class="second-level-navbar" [ngStyle]="subMenuStyle(0)">
           <li class="second-level-item">
-            <div class="second-level-content">
-              <i class="fa fa-cog"></i><p class="content-description">test 2</p>
+            <div class="second-level-content" (click)="setComponent('object')">
+              <p class="content-description">Object</p>
             </div>
           </li>
           <li class="second-level-item">
             <div class="second-level-content">
-              <i class="fa fa-cog"></i><p class="content-description">test 2</p>
-            </div>
-          </li>
-        </ul>
-      </li>
-      <li class="top-level-item">
-        <div class="top-level-content" (click)="setActiveSubMenu(1)">
-          <i class="fa fa-user"></i><p class="content-description">test</p><i class="fa fa-caret-right"></i>
-        </div>
-        <ul class="second-level-navbar" [ngStyle]="subMenuStyle(1)">
-          <li class="second-level-item">
-            <div class="second-level-content">
-              <i class="fa fa-cog"></i><p class="content-description">test 2</p>
-            </div>
-          </li>
-          <li class="second-level-item">
-            <div class="second-level-content">
-              <i class="fa fa-cog"></i><p class="content-description">test 2</p>
+              <p class="content-description">Array</p>
             </div>
           </li>
         </ul>

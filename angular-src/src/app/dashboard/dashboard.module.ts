@@ -4,6 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { router } from "../app.routes"
 
+// modules
+import { DataGeneratorsModule } from "./data-generators/data-generators.module"
+
 // services
 import { DashboardApiService } from "./dashboard-api.service"
 
@@ -19,6 +22,7 @@ import { DashboardNavbarComponent } from './components/dashboard-navbar/dashboar
     BrowserModule,
     FormsModule,
     HttpModule,
+    DataGeneratorsModule,
     router
   ],
   exports: [

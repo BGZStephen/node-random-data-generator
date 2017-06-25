@@ -68,24 +68,23 @@
   border-top: 1px solid $primary-yellow;
 }
 
-.fa-user,
 .content-description,
 .top-level-content,
-.fa-caret-right {
+.fa {
   transition: all 0.3s ease;
 }
 
-.top-level-content:hover .fa-user,
-.top-level-content:hover .content-description,
-.top-level-content:hover .fa-caret-right {
-  color: black;
-}
-
-.fa-user {
+.top-level-content > .fa:first-of-type {
   color: #ddd;
   margin-right: 15px;
   width: 15px;
 }
+
+.top-level-content:hover > .fa,
+.top-level-content:hover .content-description {
+  color: black;
+}
+
 
 .content-description {
   color: #ddd;
